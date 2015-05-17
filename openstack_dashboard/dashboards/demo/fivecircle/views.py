@@ -8,3 +8,6 @@ class IndexView(views.APIView):
     def get_data(self, request, context, *args, **kwargs):
         # Add data to the context here...
         return context
+
+class CompleteView(views.APIView):
+    template_name = 'demo/fivecircle/complete.html'

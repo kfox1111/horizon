@@ -8,65 +8,8 @@
 
 {% block main %}
 
-<table hz-table ng-cloak
-  class="table-striped table-rsp table-detail modern"
-  ng-controller="fiveCircleTableCtrl">
+<table ng-controller="fiveCircleTableCtrl">
 
-  <thead>
-    <tr>
-      <th class="expander"></th>
-      <th class="rsp-p1">Name</th>
-      <th class="rsp-p1">Cuisine</th>
-      <th class="rsp-p2">Average Rating</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr ng-repeat-start="restaurant in restaurants track by restaurant.name">
-      <td class="expander">
-        <i class="fa fa-chevron-right" hz-expand-detail duration="200"></i>
-      </td>
-      <td class="rsp-p1">{$ restaurant.name $}</td>
-      <td class="rsp-p2">{$ restaurant.cuisine $}</td>
-      <td class="rsp-p1"><stars value="restaurant.rating"></stars></td>
-    </tr>
-
-    <tr ng-repeat-end class="detail-row">
-      <td class="detail" colspan="2">
-        <dl class="dl-horizontal">
-
-          <dt>Name</dt>
-          <dd>{$ restaurant.name $}</dd>
-
-          <dt>Cuisine</dt>
-          <dd>{$ restaurant.cuisine $}</dd>
-
-          <dt>Average Rating</dt>
-          <dd>{$ restaurant.rating $}</dd>
-
-          <dt>Email</dt>
-          <dd>{$ restaurant.email $}</dd>
-
-          <dt>Description</dt>
-          <dd>{$ restaurant.description $}</dd>
-
-        </dl>
-      </td>
-      <td>
-        <pie-chart
-          chart-data="restaurant.chartDataReview"
-          chart-settings="chartSettings">
-        </pie-chart>
-      </td>
-      <td>
-        <pie-chart
-          chart-data="restaurant.chartDataCritic"
-          chart-settings="chartSettings">
-        </pie-chart>
-      </td>
-    </tr>
-
-  </tbody>
 </table>
 
 {% endblock %}

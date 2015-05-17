@@ -15,11 +15,11 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.demo.fivecircle.views \
-    import IndexView
+from openstack_dashboard.dashboards.demo.fivecircle import views
 
 
 urlpatterns = patterns(
-    '',
-    url(r'^$', IndexView.as_view(), name='index'),
+    'openstack_dashboard.dashboards.demo.fivecircle.views',
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^complete/$', views.CompleteView.as_view(), name='complete'),
 )
