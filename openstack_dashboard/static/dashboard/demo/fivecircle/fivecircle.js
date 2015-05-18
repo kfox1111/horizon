@@ -19,10 +19,11 @@
 
     angular
         .module('hz.dashboard.demo', [])
+        .controller('fiveCircleCompleteCtrl', fiveCircleCompleteCtrl)
         .controller('fiveCircleTableCtrl', fiveCircleTableCtrl)
         .directive('stars', stars);
 
-    function fiveCircleTableCtrl($scope, $http) {
+    function fiveCircleCompleteCtrl($scope, $http) {
         $http.get('/static/dashboard/demo/data.json')
             .success(function(data) {
 
@@ -58,6 +59,13 @@
             }
         );
 
+    }
+
+	function fiveCircleTableCtrl($scope, $http) {
+        $http.get('/static/dashboard/demo/data.json')
+            .success(function(data) {
+                $scope.restaurants = data;
+             });
     }
 
     function stars() {

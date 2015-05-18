@@ -12,7 +12,6 @@
 
   <!--thead>
     <tr>
-      <th class="expander"></th>
       <th>Name</th>
       <th>Cuisine</th>
       <th>Rating</th>
@@ -20,15 +19,10 @@
   </thead-->
 
   <!--tbody>
-    <tr ng-repeat-start="r in restaurants track by r.name">
-      <td class="expander">
-        <i class="fa fa-chevron-right" hz-expand-detail duration="200"></i>
-      </td>
+    <tr ng-repeat="r in restaurants track by r.name">
       <td>{$ r.name $}</td>
       <td>{$ r.cuisine $}</td>
-      <td>
-        <stars value="r.rating"></stars>
-      </td>
+      <td>{$ r.rating $}</td>
     </tr>
   </tbody-->
 
