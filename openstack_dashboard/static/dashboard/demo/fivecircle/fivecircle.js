@@ -25,8 +25,8 @@
     function fiveCircleTableCtrl($scope, $http) {
         $http.get('/static/dashboard/demo/data.json')
             .success(function(data) {
-                $scope.restaurants = data;
 
+                $scope.restaurants = data;
                 $scope.chartSettings = {
                     innerRadius: 24,
                     outerRadius: 30,

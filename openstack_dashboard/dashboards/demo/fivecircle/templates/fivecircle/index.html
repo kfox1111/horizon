@@ -10,6 +10,28 @@
 
 <table ng-controller="fiveCircleTableCtrl">
 
+  <!--thead>
+    <tr>
+      <th class="expander"></th>
+      <th>Name</th>
+      <th>Cuisine</th>
+      <th>Rating</th>
+    </tr>
+  </thead-->
+
+  <!--tbody>
+    <tr ng-repeat-start="r in restaurants track by r.name">
+      <td class="expander">
+        <i class="fa fa-chevron-right" hz-expand-detail duration="200"></i>
+      </td>
+      <td>{$ r.name $}</td>
+      <td>{$ r.cuisine $}</td>
+      <td>
+        <stars value="r.rating"></stars>
+      </td>
+    </tr>
+  </tbody-->
+
 </table>
 
 {% endblock %}
