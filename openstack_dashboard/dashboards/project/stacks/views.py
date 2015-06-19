@@ -100,6 +100,16 @@ class SelectTemplateView(forms.ModalFormView):
         kwargs['next_view'] = CreateStackView
         return kwargs
 
+    def get_initial(self):
+        initial = {}
+        template_url = self.request.GET.get('template_url')
+        if template_url:
+           initial['template_url'] = template_url
+        template_source = self.request.GET.get('template_source')
+        if template_source:
+           initial['template_source'] = template_source
+        return initial
+
 
 class ChangeTemplateView(forms.ModalFormView):
     template_name = 'project/stacks/change_template.html'

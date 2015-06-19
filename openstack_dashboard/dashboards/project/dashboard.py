@@ -16,6 +16,12 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
+class AppCatalogPanels(horizon.PanelGroup):
+    slug = "app_catalog"
+    name = _("Catalog")
+    panels = ('app_catalog',
+              'component_catalog',)
+
 
 class BasePanels(horizon.PanelGroup):
     slug = "compute"
@@ -77,6 +83,7 @@ class Project(horizon.Dashboard):
     name = _("Project")
     slug = "project"
     panels = (
+        AppCatalogPanels,
         BasePanels,
         NetworkPanels,
         ObjectStorePanels,

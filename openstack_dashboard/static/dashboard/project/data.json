@@ -1,0 +1,82 @@
+{
+    "templates": [
+        {
+            "name": "Hello World", 
+            "license": "Apache 2.0", 
+            "format": "HOT", 
+            "supported_by": "Mirantis", 
+            "provided_by": {
+                "company": "Mirantis", 
+                "href": "mailto:support@mirantis.com", 
+                "name": " "
+            }, 
+            "release": [
+                "Icehouse", 
+                "Juno", 
+                "Kilo"
+            ], 
+            "attributes": {
+                "url": "http://storage.catalog.mirantis.com/hot/hello_world.yaml"
+            }, 
+            "description": "This is a hello world HOT template just defining a single compute server."
+        }, 
+        {
+            "name": "OpenShift-CentOS65", 
+            "license": "Apache 2.0", 
+            "format": "HOT", 
+            "supported_by": "Red Hat", 
+            "provided_by": {
+                "company": "Red Hat", 
+                "href": "http://www.redhat.com", 
+                "name": "Red Hat"
+            }, 
+            "release": [
+                "Juno", 
+                "Kilo"
+            ], 
+            "attributes": {
+                "url": "https://github.com/openstack/heat-templates/blob/master/openshift-origin/centos65/OpenShift.yaml"
+            }, 
+            "description": "This is an OpenShift template for deploying an OpenShift cluster on a CentOS 6.5 VM. More details on usage and options can be found at: https://github.com/openstack/heat-templates/tree/master/openshift-origin/centos65\n"
+        }, 
+        {
+            "name": "OpenShift-F19", 
+            "license": "Apache 2.0", 
+            "format": "HOT", 
+            "supported_by": "Red Hat", 
+            "provided_by": {
+                "company": "Red Hat", 
+                "href": "http://www.redhat.com", 
+                "name": "Red Hat"
+            }, 
+            "release": [
+                "Juno", 
+                "Kilo"
+            ], 
+            "attributes": {
+                "url": "https://raw.githubusercontent.com/openstack/heat-templates/master/openshift-origin/F19/hot-template/openshift/openshift.yaml"
+            }, 
+            "description": "This is an OpenShift template for deploying an OpenShift cluster on a Fedora 19 VM. More details on usage and options can be found at: https://github.com/openstack/heat-templates/tree/master/openshift-origin/F19\n"
+        }, 
+        {
+            "name": "Lattice", 
+            "license": "Apache 2.0", 
+            "format": "HOT", 
+            "supported_by": "Layne Peng", 
+            "provided_by": {
+                "company": "EMC", 
+                "href": "mailto:appamail@hotmail.com", 
+                "name": "Layne Peng"
+            }, 
+            "release": [
+                "Icehouse", 
+                "Juno", 
+                "Kilo"
+            ], 
+            "attributes": {
+                "url": "https://github.com/LaynePeng/heat-lattice/blob/master/lattice.yaml"
+            }, 
+            "description": "Lattice is an open source project for running containerized workloads on a cluster (http://lattice.cf/docs ). Lattice bundles up http load-balancing, a cluster scheduler, log aggregation/streaming and health management into an easy-to-deploy and easy-to-use package.\nThis is a Lattice template for deploying a Lattice cluster on a Ubuntu Cloud VM. More details on usage and options can be found at: https://github.com/LaynePeng/heat-lattice\n"
+        }
+    ]
+}

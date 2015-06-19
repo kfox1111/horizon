@@ -29,6 +29,8 @@ ADD_JS_FILES = [
     'dashboard/dashboard.module.js',
     'dashboard/workflow/workflow.js',
     'dashboard/cloud-services/cloud-services.js',
+    'dashboard/project/project.js',
+    'dashboard/project/app_catalog/app_catalog.js',
     LAUNCH_INST + 'launch-instance.js',
     LAUNCH_INST + 'launch-instance.model.js',
     LAUNCH_INST + 'source/source.js',

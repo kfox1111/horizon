@@ -126,6 +126,8 @@ class TemplateForm(forms.SelfHandlingForm):
     def __init__(self, *args, **kwargs):
         self.next_view = kwargs.pop('next_view')
         super(TemplateForm, self).__init__(*args, **kwargs)
+        #if 'template_url' in kwargs:
+        #    self.fields['template_source'].choices = [('url', _('URL'))]
 
     def clean(self):
         cleaned = super(TemplateForm, self).clean()

@@ -17,8 +17,8 @@
 (function() {
     'use strict';
 
-    angular.module('hz.dashboard.demo', [
-        'hz.dashboard.demo.fivecircle'
+    angular.module('hz.dashboard.project', [
+        'hz.dashboard.project.app_catalog'
     ]);
 
 })();

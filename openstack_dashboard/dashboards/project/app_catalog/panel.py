@@ -15,19 +15,16 @@
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
+from openstack_dashboard.dashboards.project import dashboard
 
 
-class Mygroup(horizon.PanelGroup):
-    slug = "mygroup"
-    name = _("My Group")
-    panels = ('fivecircle',)
+class AppCatalog(horizon.Panel):
+    name = _("Applications")
+    slug = "app_catalog"
 
+class ComponentCatalog(horizon.Panel):
+    name = _("Components")
+    slug = "component_catalog"
 
-class Demo(horizon.Dashboard):
-    name = _("Demo")
-    slug = "demo"
-    panels = (Mygroup,)  # Add your panels here.
-    default_panel = 'fivecircle'
-
-
-horizon.register(Demo)
+dashboard.Project.register(AppCatalog)
+dashboard.Project.register(ComponentCatalog)
