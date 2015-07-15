@@ -27,23 +27,25 @@
         .directive('stars', stars);
 
     function appCatalogCompleteCtrl($scope, $http) {
-        $http.get('/static/dashboard/project/data.json')
-        //$http.get('https://raw.githubusercontent.com/stackforge/apps-catalog/master/openstack_catalog/web/static/heat_templates.yaml')
-            .success(function(data) {
-
-                $scope.templates = data.templates;
-            }
-        );
+        var req = {
+            url: 'http://apps.openstack.org/static/heat_templates.json',
+            headers: {'X-Requested-With': undefined}
+        }
+        $http(req).success(function(data) {
+            $scope.templates = data.templates;
+        });
 
     }
 
 //FIXME remove duplicate. dont need both.
-	function appCatalogTableCtrl($scope, $http) {
-        $http.get('/static/dashboard/project/data.json')
-        //$http.get('https://raw.githubusercontent.com/stackforge/apps-catalog/master/openstack_catalog/web/static/heat_templates.yaml')
-            .success(function(data) {
-                $scope.templates = data.templates;
-             });
+    function appCatalogTableCtrl($scope, $http) {
+        var req = {
+            url: 'http://apps.openstack.org/static/heat_templates.json',
+            headers: {'X-Requested-With': undefined}
+        }
+        $http(req).success(function(data) {
+            $scope.templates = data.templates;
+        });
     }
 
     function stars() {
