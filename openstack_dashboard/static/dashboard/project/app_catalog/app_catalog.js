@@ -18,7 +18,7 @@
     'use strict';
 
     angular
-        .module('hz.dashboard.project', [])
+        .module('hz.dashboard.project', ['hz.dashboard'])
         .filter('encodeURIComponent', function() {
             return window.encodeURIComponent;
         })
@@ -36,13 +36,34 @@
         });
     }
 
-    function appComponentCatalogTableCtrl($scope, $http) {
+    function update_found_images($scope) {
+        if('images' in $scope && 'glance_names' in $scope){
+            for (var i in $scope.images){
+                var name = $scope.images[i].name;
+                $scope.images[i].installed = name in $scope.glance_names;
+            }
+            console.log($scope.images);
+        }
+    }
+
+    function appComponentCatalogTableCtrl($scope, $http, glanceAPI) {
         var req = {
             url: 'http://apps.openstack.org/static/glance_images.json',
             headers: {'X-Requested-With': undefined}
         }
+        glanceAPI.getImages().success(function(data) {
+            $scope.glance_images = data;
+            var glance_names = {}
+            for (var i in data.items){
+                var name = data.items[i]['name'];
+                glance_names[name] = true;
+            }
+            $scope.glance_names = glance_names;
+            update_found_images($scope)
+        });
         $http(req).success(function(data) {
             $scope.images = data.images;
+            update_found_images($scope);
         });
     }
 

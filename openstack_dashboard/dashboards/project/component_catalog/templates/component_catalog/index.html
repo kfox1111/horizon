@@ -30,7 +30,12 @@
       <td class="rsp-p2">{$ image.license $}</td>
       <td ng-switch="image.attributes.indirect_url || '_undefined_'">
         <a ng-switch-default class="btn btn-default btn-sm" target="_blank" href="{$ image.attributes.indirect_url $}">Install Instructions</a>
-        <a ng-switch-when="_undefined_" class="btn btn-default btn-sm ajax-modal" href="/project/images/create/?name={$ image.name | encodeURIComponent $}&source_type=url&image_url={$ image.attributes.url | encodeURIComponent $}&disk_format={$ image.disk_format $}&architecture={$ image.architecture $}&minimum_disk={$ image.min_disk $}&minimum_ram={$ image.min_ram $}&description={$ image.description $}">Install</a>
+        <div ng-switch-when="_undefined_" ng-switch="image.installed">
+          <a ng-switch-default class="btn btn-default btn-sm disabled ajax-modal" href="/}">Checking</a>
+          <a ng-switch-when="false" class="btn btn-default btn-sm ajax-modal" href="/project/images/create/?name={$ image.name | encodeURIComponent $}&source_type=url&image_url={$ image.attributes.url | encodeURIComponent $}&disk_format={$ image.disk_format $}&architecture={$ image.architecture $}&minimum_disk={$ image.min_disk $}&minimum_ram={$ image.min_ram $}&description={$ image.description $}">Install</a>
+          <a ng-switch-when="true" class="btn btn-default btn-sm disabled ajax-modal" href="/">Launch</a>
+          </a>
+        </div>
       </td>
     </tr>
 
