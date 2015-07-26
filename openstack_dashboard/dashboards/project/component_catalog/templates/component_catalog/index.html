@@ -41,6 +41,13 @@
           <dd>{$ image.name $}</dd>
           <dt>Description</dt>
           <dd>{$ image.description $}</dd>
+          <dt>Company</dt>
+          <dd>{$ image.provided_by.company $}</dd>
+          <dt></dt>
+          <dd ng-switch="image.license_url || '_undefined_'">
+            <a ng-switch-default class="btn btn-default btn-sm" target="_blank" href="{$ image.license_url $}">License Details</a>
+            <div ng-switch-when="_undefined_"></div>
+          </dd>
         </dl>
       </td>
     </tr>
