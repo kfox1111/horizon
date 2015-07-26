@@ -33,6 +33,10 @@
         }
         $http(req).success(function(data) {
             $scope.templates = data.templates;
+            for (var i in $scope.templates){
+                var url = $scope.templates[i].attribute.url;
+                console.log(url);
+            }
         });
     }
 
@@ -40,9 +44,12 @@
         if('images' in $scope && 'glance_names' in $scope){
             for (var i in $scope.images){
                 var name = $scope.images[i].name;
-                $scope.images[i].installed = name in $scope.glance_names;
+                var is_installed = name in $scope.glance_names;
+                $scope.images[i].installed = is_installed;
+                if(is_installed){
+                    $scope.images[i].installed_id = $scope.glance_names[name]['id'];
+               }
             }
-            console.log($scope.images);
         }
     }
 
@@ -56,7 +63,7 @@
             var glance_names = {}
             for (var i in data.items){
                 var name = data.items[i]['name'];
-                glance_names[name] = true;
+                glance_names[name] = {'id': data.items[i]['id']};
             }
             $scope.glance_names = glance_names;
             update_found_images($scope)

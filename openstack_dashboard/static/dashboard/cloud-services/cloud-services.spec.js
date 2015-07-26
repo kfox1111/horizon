@@ -29,6 +29,7 @@
       beforeEach(module('hz.dashboard', function ($provide) {
         $provide.value('cinderAPI', {});
         $provide.value('glanceAPI', {});
+        $provide.value('heatAPI', {});
         $provide.value('keystoneAPI', {});
         $provide.value('neutronAPI', {});
         $provide.value('novaAPI', {});
@@ -52,6 +53,10 @@
 
       it('should have `cloudServices.glance` defined.', function () {
         expect(cloudServices.glance).toBeDefined();
+      });
+
+      it('should have `cloudServices.heat` defined.', function () {
+        expect(cloudServices.heat).toBeDefined();
       });
 
       it('should have `cloudServices.keystone` defined.', function () {

@@ -33,7 +33,7 @@
         <div ng-switch-when="_undefined_" ng-switch="image.installed">
           <a ng-switch-default class="btn btn-default btn-sm disabled ajax-modal" href="/}">Checking</a>
           <a ng-switch-when="false" class="btn btn-default btn-sm ajax-modal" href="/project/images/create/?name={$ image.name | encodeURIComponent $}&source_type=url&image_url={$ image.attributes.url | encodeURIComponent $}&disk_format={$ image.disk_format $}&architecture={$ image.architecture $}&minimum_disk={$ image.min_disk $}&minimum_ram={$ image.min_ram $}&description={$ image.description $}">Install</a>
-          <a ng-switch-when="true" class="btn btn-default btn-sm disabled ajax-modal" href="/">Launch</a>
+          <a ng-switch-when="true" class="btn btn-default btn-sm ajax-modal" href="/project/instances/launch?source_type=image_id&source_id={$ image.installed_id $}">Launch</a>
           </a>
         </div>
       </td>

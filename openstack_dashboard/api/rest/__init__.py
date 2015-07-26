@@ -29,4 +29,5 @@ import keystone     #flake8: noqa
 import network      #flake8: noqa
 import neutron      #flake8: noqa
 import nova         #flake8: noqa
+import heat         #flake8: noqa
 import policy       #flake8: noqa

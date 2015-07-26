@@ -44,6 +44,7 @@
   .factory('cloudServices', [
     'cinderAPI',
     'glanceAPI',
+    'heatAPI',
     'keystoneAPI',
     'neutronAPI',
     'novaAPI',
@@ -54,6 +55,7 @@
 
     function (cinderAPI,
               glanceAPI,
+              heatAPI,
               keystoneAPI,
               neutronAPI,
               novaAPI,
@@ -65,6 +67,7 @@
       return {
         cinder:           cinderAPI,
         glance:           glanceAPI,
+        heat:             heatAPI,
         keystone:         keystoneAPI,
         neutron:          neutronAPI,
         nova:             novaAPI,
