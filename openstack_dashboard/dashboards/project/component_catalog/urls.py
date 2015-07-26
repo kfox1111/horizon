@@ -12,14 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.utils.translation import ugettext_lazy as _
+from django.conf.urls import patterns
+from django.conf.urls import url
 
-import horizon
-from openstack_dashboard.dashboards.project import dashboard
+from openstack_dashboard.dashboards.project.component_catalog import views
 
 
-class AppCatalog(horizon.Panel):
-    name = _("Applications")
-    slug = "app_catalog"
-
-dashboard.Project.register(AppCatalog)
+urlpatterns = patterns(
+    'openstack_dashboard.dashboards.project.component_catalog.views',
+    url(r'^$', views.IndexView.as_view(), name='index'),
+)

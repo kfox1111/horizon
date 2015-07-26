@@ -21,5 +21,4 @@ from openstack_dashboard.dashboards.project.app_catalog import views
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.app_catalog.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^components$', views.ComponentView.as_view(), name='components'),
 )

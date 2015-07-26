@@ -18,8 +18,8 @@ import horizon
 from openstack_dashboard.dashboards.project import dashboard
 
 
-class AppCatalog(horizon.Panel):
-    name = _("Applications")
-    slug = "app_catalog"
+class ComponentCatalog(horizon.Panel):
+    name = _("Components")
+    slug = "component_catalog"
 
-dashboard.Project.register(AppCatalog)
+dashboard.Project.register(ComponentCatalog)
