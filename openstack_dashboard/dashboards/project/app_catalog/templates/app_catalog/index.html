@@ -28,8 +28,12 @@
       </td>
       <td class="rsp-p1">{$ template.name $}</td>
       <td class="rsp-p2">{$ template.license $}</td>
-      <!--<td><a class="ajax-model ng-href" href="/project/stacks/select_template?template_source=url&template_url={$ template.attributes.url | encodeURIComponent $}">Launch</a></td>-->
-      <td><a class="btn btn-default btn-sm ajax-modal" href="/project/stacks/select_template?template_source=url&template_url={$ template.attributes.url | encodeURIComponent $}">Launch</a></td>
+      <td ng-switch="template.validated">
+        <a ng-switch-default class="btn btn-default btn-sm disabled ajax-modal" href="/}">Checking</a>
+        <a ng-switch-when="error" class="btn btn-default btn-sm disabled ajax-modal" href="/">Error</a>
+        <a ng-switch-when="unsupported" class="btn btn-default btn-sm disabled ajax-modal" href="/">Unsupported</a>
+        <a ng-switch-when="true" class="btn btn-default btn-sm ajax-modal" href="/project/stacks/select_template?template_source=url&template_url={$ template.attributes.url | encodeURIComponent $}">Launch</a>
+      </td>
     </tr>
 
     <tr ng-repeat-end class="detail-row">

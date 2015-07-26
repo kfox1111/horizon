@@ -26,7 +26,7 @@
         .controller('appComponentCatalogTableCtrl', appComponentCatalogTableCtrl)
         .directive('stars', stars);
 
-    function appCatalogTableCtrl($scope, $http) {
+    function appCatalogTableCtrl($scope, $http, heatAPI) {
         var req = {
             url: 'http://apps.openstack.org/static/heat_templates.json',
             headers: {'X-Requested-With': undefined}
@@ -34,8 +34,19 @@
         $http(req).success(function(data) {
             $scope.templates = data.templates;
             for (var i in $scope.templates){
-                var url = $scope.templates[i].attribute.url;
-                console.log(url);
+                var process = function(template, url) {
+                    var url = template.attributes.url;
+                    heatAPI.validate({'template_url': url}).success(function(data){
+                        template.validated = true;
+                    }).error(function(data, status){
+                        var str = 'ERROR: Could not retrieve template:'
+                        template.validated = 'unsupported';
+                        if(status == 400 && data.slice(0, str.length) == str) {
+                            template.validated = 'error'
+                        }
+                    });
+                }
+                process($scope.templates[i]);
             }
         });
     }

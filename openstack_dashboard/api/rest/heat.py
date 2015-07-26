@@ -39,9 +39,12 @@ class Validate(generic.View):
         Example GET:
         http://localhost/api/heat/validate?template_url=...
 
+        The following get parameters may be passed in the GET
+        request:
+
         :param template_url: The template to validate
         """
         filters, kwargs = rest_utils.parse_filters_kwargs(request,
                                                           CLIENT_KEYWORDS)
-        return api.heat.validate(request, **kwargs).to_dict()
+        return api.heat.template_validate(request, **kwargs)
 
