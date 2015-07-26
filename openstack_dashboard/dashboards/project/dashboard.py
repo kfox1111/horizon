@@ -17,10 +17,11 @@ from django.utils.translation import ugettext_lazy as _
 import horizon
 
 class AppCatalogPanels(horizon.PanelGroup):
-    slug = "app_catalog"
+    slug = "catalog"
     name = _("Catalog")
     panels = ('app_catalog',
               'component_catalog',)
+    default_panel = 'app_catalog'
 
 
 class BasePanels(horizon.PanelGroup):

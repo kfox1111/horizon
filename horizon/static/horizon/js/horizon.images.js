@@ -2,6 +2,8 @@
   'use strict';
   angular.module('hz')
   .controller('ImageFormCtrl', ['$scope', function ($scope) {
+    $scope.copyFrom = $('#id_image_url').val();
+    $scope.diskFormat = $('#id_disk_format').val();
     $scope.selectImageFormat = function (path) {
       if (!path) { return; }
       var format = path.substr(path.lastIndexOf(".") + 1)

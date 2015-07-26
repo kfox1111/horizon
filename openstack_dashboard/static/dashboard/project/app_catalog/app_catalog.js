@@ -22,22 +22,10 @@
         .filter('encodeURIComponent', function() {
             return window.encodeURIComponent;
         })
-        .controller('appCatalogCompleteCtrl', appCatalogCompleteCtrl)
         .controller('appCatalogTableCtrl', appCatalogTableCtrl)
+        .controller('appComponentCatalogTableCtrl', appComponentCatalogTableCtrl)
         .directive('stars', stars);
 
-    function appCatalogCompleteCtrl($scope, $http) {
-        var req = {
-            url: 'http://apps.openstack.org/static/heat_templates.json',
-            headers: {'X-Requested-With': undefined}
-        }
-        $http(req).success(function(data) {
-            $scope.templates = data.templates;
-        });
-
-    }
-
-//FIXME remove duplicate. dont need both.
     function appCatalogTableCtrl($scope, $http) {
         var req = {
             url: 'http://apps.openstack.org/static/heat_templates.json',
@@ -45,6 +33,16 @@
         }
         $http(req).success(function(data) {
             $scope.templates = data.templates;
+        });
+    }
+
+    function appComponentCatalogTableCtrl($scope, $http) {
+        var req = {
+            url: 'http://apps.openstack.org/static/glance_images.json',
+            headers: {'X-Requested-With': undefined}
+        }
+        $http(req).success(function(data) {
+            $scope.images = data.images;
         });
     }
 
